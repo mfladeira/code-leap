@@ -7,4 +7,8 @@
 * {
   margin: 0;
 }
-
+:root {
+  --color-primary: #7695EC;
+  --color-danger: #FF5151;
+  --color-success: #47B960;
+}

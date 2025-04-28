@@ -1,0 +1,41 @@
+.button {
+  width: 120px;
+  height: 32px;
+  font-family: var(--font-roboto);
+  font-weight: 700;
+  font-size: 16px;
+  color: #FFFFFF;
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+}
+
+.button:hover {
+  transition: .3s;
+  opacity: .7;
+}
+
+.button.primary:disabled {
+  background-color: #d0d0d0;
+  pointer-events: none;
+  color: #a0a0a0;
+  opacity: 0.6;
+}
+
+.button.primary {
+  background-color: var(--color-primary);
+}
+
+.button.danger {
+  background-color: var(--color-danger);
+}
+
+.button.success {
+  background-color: var(--color-success);
+}
+
+.button.outline {
+  background-color: transparent;
+  border: 1px solid #999999;
+  color: #000000;
+}
