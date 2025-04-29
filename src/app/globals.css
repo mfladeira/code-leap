@@ -7,8 +7,16 @@
 * {
   margin: 0;
 }
+
 :root {
   --color-primary: #7695EC;
   --color-danger: #FF5151;
   --color-success: #47B960;
 }
+
+.mb8 { margin-bottom: 8px; }
+.mt8 { margin-top: 8px; }
+.mb16 { margin-bottom: 16px; }
+.mt16 { margin-top: 16px; }
+.mb24 { margin-bottom: 24px; }
+.mt24 { margin-top: 24px; }
