@@ -6,19 +6,17 @@ export type TextAreaProps = Readonly<{
   placeholder?: string;
   label: string;
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  className?: string;
 }>
 
 export const TextArea = (props: TextAreaProps) => {
   return (
-    <div className={styles.textAreaWrapper}>
-      <label htmlFor={props.id} className={styles.label}>{props.label}</label>
-      <textarea
-        id={props.id}
-        onChange={props.onChange}
-        className={styles.textArea}
-        placeholder={props.placeholder}
-        value={props.value}
-      />
-    </div>
+    <textarea
+      id={props.id}
+      onChange={props.onChange}
+      className={styles.textArea}
+      placeholder={props.placeholder}
+      value={props.value}
+    />
   )
 }

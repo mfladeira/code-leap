@@ -1,12 +1,5 @@
-.textAreaWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 .textArea {
   width: 100%;
-  width: 700px;
   height: 74px;
   border: 1px solid #777777;
   border-radius: 8px;
@@ -18,11 +11,4 @@
 
 .textArea::placeholder {
   color: #CCCCCC;
-}
-
-.label {
-  font-family: var(--font-roboto);
-  font-size: 16px;
-  font-weight: 400;
-  text-align: left;
 }
