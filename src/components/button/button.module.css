@@ -1,6 +1,6 @@
 .button {
-  width: 120px;
-  height: 32px;
+  width: min-content;
+  padding: 7px 32px;
   font-family: var(--font-roboto);
   font-weight: 700;
   font-size: 16px;
