@@ -1,8 +1,9 @@
+import { ReactNode } from 'react';
 import styles from './button.module.css';
 
 export type ButtonProps = Readonly<{
-  text: string;
-  variant: 'primary' | 'success' | 'danger' | 'outline';
+  children: ReactNode;
+  variant: 'primary' | 'success' | 'danger' | 'outline' | 'ghost';
   disabled?: boolean;
   onClick?: () => void;
 }>
@@ -14,7 +15,9 @@ export const Button = (props: ButtonProps) => {
       className={`${styles.button} ${styles[props.variant]}`}
       onClick={props.onClick}
     >
-      {props.text}
+      {
+        props.children
+      }
     </button>
   )
 }
