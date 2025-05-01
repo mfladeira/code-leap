@@ -12,11 +12,21 @@
   --color-primary: #7695EC;
   --color-danger: #FF5151;
   --color-success: #47B960;
+
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-7: 28px;
+  --spacing-8: 32px;
+  --spacing-9: 36px;
 }
 
-.mb8 { margin-bottom: 8px; }
-.mt8 { margin-top: 8px; }
-.mb16 { margin-bottom: 16px; }
-.mt16 { margin-top: 16px; }
-.mb24 { margin-bottom: 24px; }
-.mt24 { margin-top: 24px; }
+.mb8 { margin-bottom: var(--spacing-2); }
+.mt8 { margin-top: var(--spacing-2); }
+.mb16 { margin-bottom: var(--spacing-4); }
+.mt16 { margin-top: var(--spacing-4); }
+.mb24 { margin-bottom: var(--spacing-6); }
+.mt24 { margin-top: var(--spacing-6); }
