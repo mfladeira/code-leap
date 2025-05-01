@@ -1,5 +1,5 @@
 .card {
-  padding: 24px;
+  padding: var(--spacing-6);
   background-color: #FFFFFF;
   border: 1px solid #CCCCCC;
   border-radius: 16px;
@@ -9,5 +9,5 @@
   font-family: var(--font-roboto);
   font-size: 22px;
   font-weight: 700;
-  padding-bottom: 24px;
+  padding-bottom: var(--spacing-6);
 }
