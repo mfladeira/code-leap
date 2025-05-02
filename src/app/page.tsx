@@ -36,7 +36,7 @@ export default function Home() {
                     belongsToUser={post.belongsToUser}
                     username={post.username}
                     date={post.date}
-                    children={post.children}
+                    content={post.content}
                   >
                   </Post>
                 )

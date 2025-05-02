@@ -27,9 +27,16 @@
   height: 100%;
 }
 
+.modalWrapper {
+  display: flex;
+  gap: var(--spacing-6);
+}
+
 .buttonWrapper {
   display: flex;
-  gap: var(--spacing-6);;
+  justify-content: flex-end;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-4);
 }
 
 .headerPost {
@@ -59,3 +66,4 @@
   font-size: 18px;
   color: #000000;
 }
+
