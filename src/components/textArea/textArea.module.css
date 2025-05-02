@@ -12,3 +12,24 @@
 .textArea::placeholder {
   color: #CCCCCC;
 }
+
+.textArea:focus {
+  outline: none;
+  box-shadow: 3px 3px 3px rgb(217, 217, 217);
+}
+
+/* Styling the scrollbar to prevent it from breaking the textarea's border radius */
+.textArea::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 8px;
+}
+
+.textArea::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 8px;
+}
+
+.textArea::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
