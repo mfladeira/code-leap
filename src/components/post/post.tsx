@@ -75,10 +75,10 @@ export const Post = (props: PostProps) => {
             </Button>
             <Modal open={isEditModalOpen}>
               <Card title='Edit item'>
-                <Label id='title' text='Title'></Label>
-                <Input id='title' value={title} className='mt8 mb24' onChange={(e) => setTitle(e.target.value)}></Input>
-                <Label id='content' text='Content' className='mb8'></Label>
-                <TextArea id='content' value={content} onChange={(e) => setContent(e.target.value)}></TextArea>
+                <Label id={`title-${props.id}`} text='Title'></Label>
+                <Input id={`title-${props.id}`} value={title} className='mt8 mb24' onChange={(e) => setTitle(e.target.value)}></Input>
+                <Label id={`content-${props.id}`} text='Content' className='mb8'></Label>
+                <TextArea id={`content-${props.id}`} value={content} onChange={(e) => setContent(e.target.value)}></TextArea>
                 <div className={styles.buttonWrapper}>
                   <Button variant='outline' onClick={() => setIsEditModalOpen(false)}>Cancel</Button>
                   <Button variant='success' onClick={handleEditPost}>Save</Button>
