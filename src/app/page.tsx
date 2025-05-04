@@ -7,17 +7,17 @@ import { Label } from "@/components/label/label";
 import { TextArea } from "@/components/textArea/textArea";
 import { Button } from "@/components/button/button";
 import { Post, PostProps } from "@/components/post/post";
-import { useAppSelector } from '@/store/hooks'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { useEffect, useState } from "react";
-import { getItem } from "./utils/localStorageFunctions";
 import { useRouter } from 'next/navigation'
 import { createPost, fetchPosts } from "@/services/posts";
+import Image from "next/image";
+import { logout } from "@/store/features/authSlice";
 
 
 export default function Home() {
+  const dispatch = useAppDispatch();
   const router = useRouter();
-
-  const  name = useAppSelector((state) => state.auth.user);
 
   const username = useAppSelector((state) => state.auth.user);
   const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
@@ -57,9 +57,17 @@ export default function Home() {
 
   return (
     <main className={styles.home}>
-      <div className={styles.homeWrapper}>
+      <div className={`${styles.homeWrapper} pageAnimation`}>
         <header className={styles.header}>
           <h2>CodeLeap Network</h2>
+          <Button variant='ghost' onClick={() => dispatch(logout())}>
+            <Image
+              src={'/logout-icon.svg'}
+              alt="Logout icon"
+              width={32}
+              height={30}
+            />
+          </Button>
         </header>
         <div className={styles.content}>
           <Card title="What’s on your mind?">
@@ -70,7 +78,7 @@ export default function Home() {
             <TextArea id="content" placeholder="Content here" className="mb24" value={content} onChange={(e) => setContent(e.target.value)}></TextArea>
 
             <div className={styles.buttonWrapper}>
-              <Button variant="primary" onClick={handleCreatePost}>Create</Button>
+              <Button variant="primary" onClick={handleCreatePost} disabled={title.length === 0 || content.length === 0}>Create</Button>
             </div>
           </Card>
           <div className={styles.postWrapper}>

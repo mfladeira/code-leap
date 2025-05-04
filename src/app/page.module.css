@@ -16,6 +16,9 @@
 
 .header {
   height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: var(--color-primary);
   padding: var(--spacing-7) var(--spacing-9);
 }

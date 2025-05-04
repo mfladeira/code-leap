@@ -30,3 +30,16 @@
 .mt16 { margin-top: var(--spacing-4); }
 .mb24 { margin-bottom: var(--spacing-6); }
 .mt24 { margin-top: var(--spacing-6); }
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.pageAnimation {
+  animation: fadein 0.3s ease-in-out;
+}
