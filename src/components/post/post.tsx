@@ -11,13 +11,9 @@ import { Label } from '../label/label';
 import { TextArea } from '../textArea/textArea';
 import { deletePost, editPost } from '@/services/posts';
 import { useState } from 'react';
+import { PostType } from '@/types/post';
 
-export type PostProps = Readonly<{
-  id: number;
-  title: string;
-  content: string;
-  username: string;
-  created_datetime: string;
+export type PostProps = PostType & Readonly<{
   belongsToUser?: boolean;
   onPostChange?: () => void;
 }>

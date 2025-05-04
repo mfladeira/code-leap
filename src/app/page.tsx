@@ -6,7 +6,7 @@ import { Input } from "@/components/input/input";
 import { Label } from "@/components/label/label";
 import { TextArea } from "@/components/textArea/textArea";
 import { Button } from "@/components/button/button";
-import { Post, PostProps } from "@/components/post/post";
+import { Post } from "@/components/post/post";
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation'
@@ -14,6 +14,7 @@ import { createPost, fetchPosts } from "@/services/posts";
 import Image from "next/image";
 import { logout } from "@/store/features/authSlice";
 import { Spinner } from "@/components/loading/loading";
+import { PostType } from "@/types/post";
 
 
 export default function Home() {
@@ -23,7 +24,7 @@ export default function Home() {
   const username = useAppSelector((state) => state.auth.user);
   const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
 
-  const [posts, setPosts] = useState<PostProps[]>([]);
+  const [posts, setPosts] = useState<PostType[]>([]);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -31,7 +32,7 @@ export default function Home() {
   const loadPosts = async () => {
     setIsLoading(true);
     const posts = await fetchPosts();
-    const sortedPosts = posts.sort((a: PostProps, b: PostProps) =>
+    const sortedPosts = posts.sort((a: PostType, b: PostType) =>
       new Date(b.created_datetime).getTime() - new Date(a.created_datetime).getTime()
     );
     setPosts(sortedPosts);

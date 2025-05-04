@@ -1,10 +1,12 @@
-export const fetchPosts = async () => {
+import { PostType } from "@/types/post";
+
+export const fetchPosts = async (): Promise<Array<PostType>> => {
   const response = await fetch("https://dev.codeleap.co.uk/careers/");
   const data = await response.json();
   return data.results;
 };
 
-export const createPost = async (title: string, content: string, username: string) => {
+export const createPost = async (title: string, content: string, username: string): Promise<{ title: string, content: string, username: string }> => {
   const response = await fetch('https://dev.codeleap.co.uk/careers/', {
     method: 'POST',
     headers: {
@@ -20,7 +22,7 @@ export const createPost = async (title: string, content: string, username: strin
   return data;
 }
 
-export const deletePost = async (id: number) => {
+export const deletePost = async (id: number): Promise<{}> => {
   const response = await fetch(`https://dev.codeleap.co.uk/careers/${id}/`, {
     method: 'DELETE',
     headers: {
@@ -30,7 +32,7 @@ export const deletePost = async (id: number) => {
   return response;
 }
 
-export const editPost = async (id: number, title: string, content: string) => {
+export const editPost = async (id: number, title: string, content: string): Promise<{ title: string, content: string }> => {
   const response = await fetch(`https://dev.codeleap.co.uk/careers/${id}/`, {
     method: 'PATCH',
     headers: {
