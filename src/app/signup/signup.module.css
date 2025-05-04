@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.cardWrapper{
+.cardWrapper {
   width: 500px;
 }
 
@@ -15,4 +15,11 @@
   display: flex;
   justify-content: flex-end;
   margin-top: var(--spacing-4);
+}
+
+@media (max-width: 480px) {
+  .cardWrapper {
+    width: 100%;
+    padding: 10px;
+  }
 }
