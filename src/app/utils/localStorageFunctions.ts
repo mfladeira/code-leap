@@ -1,6 +1,6 @@
 export const getItem = (itemName: string) => {
   const item = localStorage.getItem(itemName)
-  return item ? JSON.parse(item) : null
+  return item ? item : null
 }
 
 export const removeItem = (itemName: string) => {
