@@ -18,6 +18,7 @@ Technologies
 - NexJS
 - TypeScript
 - Redux
+- Radix
   
 How to Install
 ------------------
