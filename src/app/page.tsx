@@ -31,7 +31,10 @@ export default function Home() {
   const loadPosts = async () => {
     setIsLoading(true);
     const posts = await fetchPosts();
-    setPosts(posts);
+    const sortedPosts = posts.sort((a: PostProps, b: PostProps) =>
+      new Date(b.created_datetime).getTime() - new Date(a.created_datetime).getTime()
+    );
+    setPosts(sortedPosts);
     setIsLoading(false);
   }
 
