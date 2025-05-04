@@ -13,6 +13,7 @@ import { useRouter } from 'next/navigation'
 import { createPost, fetchPosts } from "@/services/posts";
 import Image from "next/image";
 import { logout } from "@/store/features/authSlice";
+import { Spinner } from "@/components/loading/loading";
 
 
 export default function Home() {
@@ -25,10 +26,13 @@ export default function Home() {
   const [posts, setPosts] = useState<PostProps[]>([]);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const loadPosts = async () => {
+    setIsLoading(true);
     const posts = await fetchPosts();
     setPosts(posts);
+    setIsLoading(false);
   }
 
   useEffect(() => {
@@ -83,21 +87,30 @@ export default function Home() {
           </Card>
           <div className={styles.postWrapper}>
             {
-              posts.map(post => {
-                return (
-                  <Post
-                    id={post.id}
-                    key={post.id}
-                    title={post.title}
-                    belongsToUser={post.username === username}
-                    username={post.username}
-                    created_datetime={post.created_datetime}
-                    content={post.content}
-                    onPostChange={loadPosts}
-                  >
-                  </Post>
-                )
-              })
+              isLoading ?
+                <div className={styles.spinnerWrapper}>
+                  <Spinner></Spinner>
+                </div>
+                :
+                <>
+                  {
+                    posts.map(post => {
+                      return (
+                        <Post
+                          id={post.id}
+                          key={post.id}
+                          title={post.title}
+                          belongsToUser={post.username === username}
+                          username={post.username}
+                          created_datetime={post.created_datetime}
+                          content={post.content}
+                          onPostChange={loadPosts}
+                        >
+                        </Post>
+                      )
+                    })
+                  }
+                </>
             }
           </div>
         </div>

@@ -49,3 +49,9 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.spinnerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
