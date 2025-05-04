@@ -17,16 +17,15 @@ export default function SignUp() {
   const router = useRouter();
 
   useEffect(() => {
-    const username = getItem('username');
+    const storedUser = getItem('user');
     const isAuthenticated = getItem('isAuthenticated')
 
-    if (Boolean(isAuthenticated) && username) {
+    if (Boolean(isAuthenticated) && storedUser) {
       router.push('/');
     }
   }, []);
 
   const handleLogin = () => {
-    if (!username.trim()) return;
     dispatch(login(username));
     setItem('user', username);
     setItem('isAuthenticated', 'true');
@@ -40,7 +39,7 @@ export default function SignUp() {
           <Label id='username' text='Please enter your username' className='mb8'></Label>
           <Input id='username' placeholder='John doe' value={username} onChange={(e) => setUsername(e.target.value)}></Input>
           <div className={styles.buttonWrapper}>
-            <Button children='ENTER' variant='primary' onClick={handleLogin}></Button>
+            <Button children='ENTER' variant='primary' onClick={handleLogin} disabled={username.length === 0}></Button>
           </div>
         </Card>
       </div>
