@@ -23,7 +23,7 @@ export default function SignUp() {
     if (Boolean(isAuthenticated) && storedUser) {
       router.push('/');
     }
-  }, []);
+  }, [router]);
 
   const handleLogin = () => {
     dispatch(login(username));
@@ -39,7 +39,7 @@ export default function SignUp() {
           <Label id='username' text='Please enter your username' className='mb8'></Label>
           <Input id='username' placeholder='John doe' value={username} onChange={(e) => setUsername(e.target.value)}></Input>
           <div className={styles.buttonWrapper}>
-            <Button children='ENTER' variant='primary' onClick={handleLogin} disabled={username.length === 0}></Button>
+            <Button variant='primary' onClick={handleLogin} disabled={username.length === 0}>ENTER</Button>
           </div>
         </Card>
       </div>

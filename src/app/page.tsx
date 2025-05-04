@@ -43,7 +43,7 @@ export default function Home() {
     if (!isAuthenticated || !username) {
       router.push('/signup');
     }
-  }, [isAuthenticated, username]);
+  }, [isAuthenticated, username, router]);
 
   const handleCreatePost = async () => {
     if (!title.trim() || !content.trim()) return;
