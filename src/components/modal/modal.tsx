@@ -6,20 +6,12 @@ import styles from './modal.module.css';
 export type ModalProps = Readonly<{
   children?: ReactNode;
   trigger?: ReactNode;
+  open?: boolean;
 }>
 
 export const Modal = (props: ModalProps) => {
   return (
-    <DialogPrimitives.Root modal>
-      {
-        props.trigger &&
-        <DialogPrimitives.Trigger asChild>
-          {
-            props.trigger
-          }
-        </DialogPrimitives.Trigger>
-      }
-      {/* Portal is used to ensure that the dialog content is rendered at the end of the <body> element — outside the usual React component hierarchy. */}
+    <DialogPrimitives.Root modal open={props.open}>
       <DialogPrimitives.Portal>
         <DialogPrimitives.Overlay className={styles.DialogOverlay} />
         <DialogPrimitives.Content className={styles.DialogContent}>
