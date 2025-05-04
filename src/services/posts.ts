@@ -22,14 +22,13 @@ export const createPost = async (title: string, content: string, username: strin
   return data;
 }
 
-export const deletePost = async (id: number): Promise<{}> => {
-  const response = await fetch(`https://dev.codeleap.co.uk/careers/${id}/`, {
+export const deletePost = async (id: number): Promise<void> => {
+  await fetch(`https://dev.codeleap.co.uk/careers/${id}/`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },
   });
-  return response;
 }
 
 export const editPost = async (id: number, title: string, content: string): Promise<{ title: string, content: string }> => {
